@@ -69,6 +69,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/resources/**").permitAll() //enable static resources loaded without authentication
 				.antMatchers("/donation/**").permitAll()//enable public view homepage
 				.antMatchers("/user_donation/make").permitAll()
+				.antMatchers("/index").permitAll()
 				.antMatchers("/").permitAll()//enable root path to redirect to public view homepage
 				.anyRequest().authenticated() //any request to the app must be authenticated (ie logged in)
 				.and()

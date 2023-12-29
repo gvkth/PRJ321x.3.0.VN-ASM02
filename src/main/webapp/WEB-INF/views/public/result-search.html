@@ -1,65 +1,93 @@
-<!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" lang="vi">
-<head>
+<!DOCTYPE html>
+<html lang="en">
+<head">
     <title>Work CV</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+
   <!-- CSS -->
-  <link rel="stylesheet" th:href="@{/resources/assets/css/open-iconic-bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/animate.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/owl.carousel.min.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/owl.theme.default.min.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/magnific-popup.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/owl.carousel.min.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/owl.theme.default.min.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/aos.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/ionicons.min.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/bootstrap-datepicker.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/jquery.timepicker.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/css/bootstrap-reboot.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/css/mixins/_text-hide.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/flaticon.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/icomoon.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/style.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/bootstrap/bootstrap-grid.css}">
-  <link rel="stylesheet" th:href="@{/resources/assets/css/bootstrap/bootstrap-reboot.css}">
-  
+  <link rel="stylesheet" href="/assets/css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/animate.css">
+  <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/assets/css/aos.css">
+  <link rel="stylesheet" href="/assets/css/ionicons.min.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/assets/css/jquery.timepicker.css">
+  <link rel="stylesheet" href="/assets/css/css/bootstrap-reboot.css">
+  <link rel="stylesheet" href="/assets/css/css/mixins/_text-hide.css">
+  <link rel="stylesheet" href="/assets/css/flaticon.css">
+  <link rel="stylesheet" href="/assets/css/icomoon.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap-grid.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap-reboot.css">
+
+  <!-- JS -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/jquery.easing.1.3.js"></script>
+  <script src="/assets/js/jquery.waypoints.min.js"></script>
+  <script src="/assets/js/jquery.stellar.min.js"></script>
+  <script src="/assets/js/owl.carousel.min.js"></script>
+  <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/jquery.animateNumber.min.js"></script>
+  <script src="/assets/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="/assets/js/google-map.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-	
-	
-	
-<!-- BEGIN nav -->
-	    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid px-md-4	">
-          <a class="navbar-brand" href="/">Work CV</a>
-      
-          <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active"><a href="/" class="nav-link">Trang chủ</a></li>
-              <li class="'nav-item"><a href="/" class="nav-link">Công việc</a></li>
-              <li class="nav-item"><a href="/" class="nav-link">Ứng cử viên</a></li>
-                <ul class="dropdown">
-                  <li><a href="/">Hồ Sơ</a></li>
-                  <li ><a href="/save-job/get-list" >Công việc đã lưu</a></li>
-                  <li ><a href="/user/list-post" >Danh sách bài đăng</a></li>
-                  <li ><a href="/user/get-list-apply" >Công việc đã ứng tuyển</a></li>
-                  <li ><a href="/user/get-list-company" >Công ty đã theo dõi</a></li>
-                  <li><a href="/auth/logout" >Đăng xuất</a></li>
-                </ul>
-                <li></li>
-                <li class="nav-item cta mr-md-1"><a href="/recruitment/post" class="nav-link">Đăng tuyển</a></li>
-              <li class="nav-item cta cta-colored"><a href="/auth/login" class="nav-link">Đăng nhập</a></li>
-            </ul>
-          </div>
+<body>
+<nav class="header_menu" class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container-fluid px-md-4	">
+        <a class="navbar-brand" href="/">Work CV</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+    
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="/" class="nav-link">Trang chủ</a></li>
+            <li class="'nav-item"><a href="/" class="nav-link">Công việc</a></li>
+            <li class="nav-item"><a href="/" class="nav-link">Ứng cử viên</a></li>
+    <!--        <li class="nav-item"><a href="blog.html" class="nav-link">Công ty</a></li>-->
+    <!-- 
+            <li th:if="${session.user}" class="nav-item"><a th:href="@{'/user/profile/'+${session.user.id}}" th:text="${session.user.fullName}" class="nav-link" ></a> -->
+    
+              <ul class="dropdown">
+                <li><a href="/">Hồ Sơ</a></li>
+    <!--            <li><a href="service-single.html">Đổi mật khẩu</a></li>-->
+                <li ><a href="/save-job/get-list" >Công việc đã lưu</a></li>
+                <li ><a href="/user/list-post" >Danh sách bài đăng</a></li>
+                <li ><a href="/user/get-list-apply" >Công việc đã ứng tuyển</a></li>
+                <li ><a href="/user/get-list-company" >Công ty đã theo dõi</a></li>
+    <!--            <li th:if="${session.user.role.id == 2}"><a href="/auth/logout" >Ứng cử viên tiềm năng</a></li>-->
+                <li><a href="/auth/logout" >Đăng xuất</a></li>
+    
+              </ul>
+            </li>
+    
+              <li></li>
+    
+              <li class="nav-item cta mr-md-1"><a href="/recruitment/post" class="nav-link">Đăng tuyển</a></li>
+            <li class="nav-item cta cta-colored"><a href="/auth/login" class="nav-link">Đăng nhập</a></li>
+    
+          </ul>
         </div>
-      </nav>
+      </div>
+</nav>
 <!-- END nav -->
-
-<!-- BEGIN message -->	
-<div th:if="${msg_register_successDISABLED}" class="toast" data-delay="2000" style="position:fixed;top: 100PX; right: 10PX;z-index: 2000;width: 300px">
+<div th:if="${msg_register_success}" class="toast" data-delay="2000" style="position:fixed;top: 100PX; right: 10PX;z-index: 2000;width: 300px">
     <script>
         swal({
             title: 'Đăng nhập thành công!',
@@ -71,26 +99,24 @@
         })
     </script>
 </div>
-<!-- END message -->
-	
-	
-<div class="hero-wrap img" style="background-image: url(resources/assets/images/bg_1.jpg);">
-	<div class="overlay"></div>
-	<div class="container">
-		<div class="row d-md-flex no-gutters slider-text align-items-center justify-content-center">
-			<div class="text text-center pt-5 mt-md-5">
-                <p class="mb-4">Tìm việc làm, Cơ hội việc làm và Nghề nghiệp</p>
-                <h1 class="mb-5">Cách dễ dàng nhất để có được công việc mới của bạn</h1>
-                <div class="ftco-counter ftco-no-pt ftco-no-pb">
-					<div class="row">
-						<div class="col-md-4 d-flex justify-content-center counter-wrap ">
+<div class="hero-wrap img" style="background-image: url(user/assets/images/bg_1.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-10 d-flex align-items-center ">
+                <div class="text text-center pt-5 mt-md-5">
+                    <p class="mb-4">Tìm việc làm, Cơ hội việc làm và Nghề nghiệp</p>
+                    <h1 class="mb-5">Cách dễ dàng nhất để có được công việc mới của bạn</h1>
+                    <div class="ftco-counter ftco-no-pt ftco-no-pb">
+                        <div class="row">
+                            <div class="col-md-4 d-flex justify-content-center counter-wrap ">
                                 <div class="block-18">
                                     <div class="text d-flex">
                                         <div class="icon mr-2">
                                             <span class="flaticon-visitor"></span>
                                         </div>
                                         <div class="desc text-left">
-                                            <strong class="number" data-number="416" th:text="${numberCandidate}"></strong>
+                                            <strong class="number" data-number="46" th:text="${numberCandidate}"></strong>
                                             <span>Ứng cử viên</span>
                                         </div>
                                     </div>
@@ -103,7 +129,7 @@
                                             <span class="flaticon-visitor"></span>
                                         </div>
                                         <div class="desc text-left">
-                                            <strong class="number" data-number="437" th:text="${numberCompany}"></strong>
+                                            <strong class="number" data-number="450" th:text="${numberCompany}"></strong>
                                             <span>Công ty</span>
                                         </div>
                                     </div>
@@ -116,27 +142,26 @@
                                             <span class="flaticon-resume"></span>
                                         </div>
                                         <div class="desc text-left">
-                                            <strong class="number" data-number="80125" th:text="${numberRecruitment}"></strong>
+                                            <strong class="number" data-number="80000" th:text="${numberRecruitment}"></strong>
                                             <span>Tuyển dụng</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-					</div>
-				</div>
-				<div class="ftco-search my-md-5">
-					<div class="row">
-						<div class="col-md-12 nav-link-wrap">
-							<div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Tìm công việc</a>
+                        </div>
+                    </div>
+                    <div class="ftco-search my-md-5">
+                        <div class="row">
+                            <div class="col-md-12 nav-link-wrap">
+                                <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Tìm công việc</a>
 
-                                <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Tìm ứng cử viên</a>
-                                <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Tìm theo địa điểm</a>
-
+                                    <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Tìm ứng cử viên</a>
+                                    <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Tìm theo địa điểm</a>
+                                </div>
                             </div>
-						</div>
-						<div class="col-md-12 tab-wrap">
-							<div class="tab-content p-4" id="v-pills-tabContent">
+                            <div class="col-md-12 tab-wrap">
+                                <div class="tab-content p-4" id="v-pills-tabContent">
 
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
                                         <form action="/recruitment/search" method="post" class="search-job">
@@ -206,92 +231,22 @@
                                         </form>
                                     </div>
                                 </div>
-						</div>
-					</div>
-				</div>
-			</div>       
-		</div>
-	</div>
-</div>	
-
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-
-            <div style="display: block" class="col-md-7 heading-section text-center">
-                <span class="subheading">Danh mục công việc</span>
-                <h2 class="mb-0">Top Danh Mục</h2>
-            </div>
-        </div>
-        <div class="row">
-            <th:block th:each="categorie : ${categories}">
-            <div class="col-md-3 ">
-                <ul class="category text-center">
-
-                    <li><a style="text-decoration: none !important;" th:href="${'/recruitment/category/'}+${categorie.id}"> <p th:text="${categorie.name}"></p><span class="number" th:text="${categorie.numberChoose}"></span> <span>Vị trí</span><i class="ion-ios-arrow-forward"></i></a></li>
-                </ul>
-            </div>
-            </th:block>
-        </div>
-    </div>
-</section>
-
-<section class="ftco-section services-section">
-    <div class="container">
-        <div class="row d-flex">
-            <div class="col-md-3 d-flex align-self-stretch ">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-resume"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Tìm kiếm hàng triệu việc làm</h3>
-                        <p>Một con sông nhỏ tên là Duden chảy qua nơi ở và nguồn cung cấp của họ.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-team"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Dễ dàng quản lý công việc</h3>
-                        <p>Một con sông nhỏ tên là Duden chảy qua nơi ở và nguồn cung cấp của họ.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-career"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Top Nghề nghiệp</h3>
-                        <p>Một con sông nhỏ tên là Duden chảy qua nơi ở và nguồn cung cấp của họ.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 d-flex align-self-stretch ">
-                <div class="media block-6 services d-block">
-                    <div class="icon"><span class="flaticon-employees"></span></div>
-                    <div class="media-body">
-                        <h3 class="heading mb-3">Ứng viên Chuyên gia Tìm kiếm</h3>
-                        <p>Một con sông nhỏ tên là Duden chảy qua nơi ở và nguồn cung cấp của họ.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section class="ftco-section bg-light">
+<section class="ftco-section bg-light" th:if="${session.user}">
     <div class="container">
+        <h4 style="margin-top: -20px">Kết quả tìm kiếm cho : <span th:text="${keySearch}"></span></h4>
         <div class="row">
-            <div class="col-lg-9 pr-lg-5">
-                <div class="row justify-content-center pb-3">
-                    <div class="col-md-12 heading-section ">
-                        <span class="subheading">CÔNG VIỆC ĐƯỢC NHIỀU NGƯỜI ỨNG TUYỂN</span>
-                        <h2 class="mb-4">Các bài đăng về việc làm nổi bật</h2>
-
-                    </div>
-                </div>
+            <div class="col-lg-12 pr-lg-5">
                 <div class="row">
-                    <th:block th:each="recruitment : ${recruitments}">
+                    <th:block th:if="${list.totalPages>0}" th:each="recruitment : ${list.content}">
                         <div class="col-md-12 ">
                             <div class="job-post-item p-4 d-block d-lg-flex align-items-center">
                                 <div class="one-third mb-4 mb-md-0">
@@ -305,21 +260,13 @@
                                     </div>
                                 </div>
                                 <input type="hidden" th:id="${'idRe'}+${recruitment.id}" th:value="${recruitment.id}">
-                                <div th:if="${session.user}" class="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                                    <div th:if="${session.user.role.id == 1}">
+                                <div class="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
+                                    <div th:if="${session.user.role.id == 1 }">
                                         <a  th:onclick="'save(' +${recruitment.id}+ ')'" class="icon text-center d-flex justify-content-center align-items-center icon mr-2">
                                             <span class="icon-heart"></span>
                                         </a>
                                     </div>
-                                    <a th:if="${session.user.role.id == 1}" data-toggle="modal" th:data-target="${'#exampleModal'}+${recruitment.id}" class="btn btn-primary py-2">Apply Job</a>
-                                </div>
-                                <div th:unless="${session.user}" class="one-forth ml-auto d-flex align-items-center mt-4 md-md-0">
-                                    <div >
-                                        <a  th:onclick="'save(' +${recruitment.id}+ ')'" class="icon text-center d-flex justify-content-center align-items-center icon mr-2">
-                                            <span class="icon-heart"></span>
-                                        </a>
-                                    </div>
-                                    <a  data-toggle="modal" th:data-target="${'#exampleModal'}+${recruitment.id}" class="btn btn-primary py-2">Apply Job</a>
+                                    <a  data-toggle="modal" th:data-target="${'#exampleModal'}+${recruitment.id}" class="btn btn-primary py-2" th:if="${session.user.role.id == 1 }">Apply Job</a>
                                 </div>
                             </div>
                         </div><!-- end -->
@@ -377,175 +324,31 @@
                             </div>
                         </div>
                     </th:block>
-
-                </div>
-            </div>
-            <div class="col-lg-3 sidebar">
-                <div class="row justify-content-center pb-3">
-                    <div class="col-md-12 heading-section ">
-                        <h2 class="mb-4">Công ty nổi bật</h2>
+                    <div   style="text-align: center" th:if="${list.totalPages == 0}">
+                        <p style="color: red">Không có kết quả nào</p>
                     </div>
                 </div>
-                <th:block th:each="companies : ${companies}">
-                <div class="sidebar-box">
-                    <div class="">
-                        <a th:href="${'/user/detail-company/'}+${companies[0]}" class="company-wrap"><img th:src="${companies[2]}" class="img-fluid" alt="Colorlib Free Template"></a>
-                        <div class="text p-3">
-                            <h3><a th:href="${'/user/detail-company/'}+${companies[0]}" th:text="${companies[1]}"></a></h3>
-                            <p><span class="number" style="color: black" th:text="${companies[3]}"></span> <span>Vị trí ứng tuyển</span></p>
+
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="block-27">
+                            <ul>
+                                <li th:if="${numberPage>0}"><a th:href="@{'/recruitment/search/'+ ${keySearch}(page = ${list.number - 1})}">&lt;</a></li>
+                                <th:block th:each="recruitment,state  : ${recruitmentList}">
+                                    <li th:class="${numberPage == state.index  ? 'active' : null }"><a th:href="@{'/recruitment/search/'+ ${keySearch}(page = ${state.index})}" th:text="${state.index + 1}"></a></li>
+                                </th:block>
+                                <li th:if="${numberPage<list.totalPages - 1}"><a th:href="@{'/recruitment/search/'+ ${keySearch}(page = ${list.number + 1})}">&gt;</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                </th:block>
             </div>
+
         </div>
     </div>
 </section>
 
-
 <script>
-    function save(id){
-        var name = "#idRe" +id;
-        var idRe = $(name).val();
-        var formData = new FormData();
-        formData.append('idRe', idRe);
-        $.ajax(
-            {
-                type: 'POST',
-                url: '/save-job/save/',
-                contentType: false,
-                processData: false,
-                data: formData,
-                success: function (data) {
-                    console.log(data);
-                    if(data == "false"){
-                        swal({
-                            title: 'Bạn cần phải đăng nhập!',
-                            /* text: 'Redirecting...', */
-                            icon: 'error',
-                            timer: 3000,
-                            buttons: true,
-                            type: 'error'
-                        })
-                    }else if(data == "true"){
-                        swal({
-                            title: 'Lưu thành công!',
-                            /* text: 'Redirecting...', */
-                            icon: 'success',
-                            timer: 3000,
-                            buttons: true,
-                            type: 'success'
-                        })
-                    }else{
-                        swal({
-                            title: 'Bạn đã lưu bài này rồi!',
-                            /* text: 'Redirecting...', */
-                            icon: 'error',
-                            timer: 3000,
-                            buttons: true,
-                            type: 'error'
-                        })
-                    }
-                },
-                error: function (err) {
-                    alert(err);
-                }
-            }
-        )
-    }
-
-    function choosed(id){
-        var name = '#choose' + id;
-        var name1 = 'loai1' + id;
-        var name2 = 'loai2' + id;
-        var button1 = 'button1' + id;
-        var button2 = 'button2' + id;
-        var giaitri = $(name).val();
-        if(giaitri == 1){
-            document.getElementById(name1).style.display = 'block'
-            document.getElementById(name2).style.display = 'none'
-            document.getElementById(button1).style.display = 'block'
-            document.getElementById(button2).style.display = 'none'
-        }else{
-            document.getElementById(name2).style.display = 'block'
-            document.getElementById(name1).style.display = 'none'
-            document.getElementById(button2).style.display = 'block'
-            document.getElementById(button1).style.display = 'none'
-        }
-    }
-
-    function apply(id){
-        var name = "#idRe" +id;
-        var nameModal = "#exampleModal" +id;
-        var nameFile = "#fileUpload"+id;
-        var nameText = "#text" +id;
-        var idRe = $(name).val();
-        var textvalue = $(nameText).val();
-        var fileUpload = $(nameFile).get(0);
-        var files = fileUpload.files;
-        var formData = new FormData();
-        formData.append('file', files[0]);
-        formData.append('idRe', idRe);
-        formData.append('text', textvalue);
-        if(files[0] == null){
-            swal({
-                title: 'Bạn cần phải chọn cv!',
-                /* text: 'Redirecting...', */
-                icon: 'error',
-                timer: 3000,
-                buttons: true,
-                type: 'error'
-            })
-        } else {
-            $.ajax(
-                {
-                    type: 'POST',
-                    url: '/user/apply-job/',
-                    contentType: false,
-                    processData: false,
-                    data: formData,
-                    success: function (data) {
-                        if (data == "false") {
-                            swal({
-                                title: 'Bạn cần phải đăng nhập!',
-                                /* text: 'Redirecting...', */
-                                icon: 'error',
-                                timer: 3000,
-                                buttons: true,
-                                type: 'error'
-                            })
-                        } else if (data == "true") {
-                            swal({
-                                title: 'Ứng tuyển thành công!',
-                                /* text: 'Redirecting...', */
-                                icon: 'success',
-                                timer: 3000,
-                                buttons: true,
-                                type: 'success'
-                            })
-                            $(nameModal).modal('hide');
-                            $('#fileUpload').val("");
-                        } else {
-                            swal({
-                                title: 'Bạn đã ứng tuyển công việc này!',
-                                /* text: 'Redirecting...', */
-                                icon: 'error',
-                                timer: 3000,
-                                buttons: true,
-                                type: 'error'
-                            })
-                            $(nameModal).modal('hide');
-                            $('#fileUpload').val("");
-                        }
-                    },
-                    error: function (err) {
-                        alert(err);
-                    }
-                }
-            )
-        }
-
-    }
     function apply1(id){
         var name = "#idRe" +id;
         var nameModal = "#exampleModal" +id;
@@ -605,29 +408,159 @@
 
 
     }
+    function choosed(id){
+        var name = '#choose' + id;
+        var name1 = 'loai1' + id;
+        var name2 = 'loai2' + id;
+        var button1 = 'button1' + id;
+        var button2 = 'button2' + id;
+        var giaitri = $(name).val();
+        if(giaitri == 1){
+            document.getElementById(name1).style.display = 'block'
+            document.getElementById(name2).style.display = 'none'
+            document.getElementById(button1).style.display = 'block'
+            document.getElementById(button2).style.display = 'none'
+        }else{
+            document.getElementById(name2).style.display = 'block'
+            document.getElementById(name1).style.display = 'none'
+            document.getElementById(button2).style.display = 'block'
+            document.getElementById(button1).style.display = 'none'
+        }
+    }
+
+    function save(id){
+        var name = "#idRe" +id;
+        var idRe = $(name).val();
+        var formData = new FormData();
+        formData.append('idRe', idRe);
+        $.ajax(
+            {
+                type: 'POST',
+                url: '/save-job/save/',
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (data) {
+                    console.log(data);
+                    if(data == "false"){
+                        swal({
+                            title: 'Bạn cần phải đăng nhập!',
+                            /* text: 'Redirecting...', */
+                            icon: 'error',
+                            timer: 3000,
+                            buttons: true,
+                            type: 'error'
+                        })
+                    }else if(data == "true"){
+                        swal({
+                            title: 'Lưu thành công!',
+                            /* text: 'Redirecting...', */
+                            icon: 'success',
+                            timer: 3000,
+                            buttons: true,
+                            type: 'success'
+                        })
+                    }else{
+                        swal({
+                            title: 'Bạn đã lưu bài này rồi!',
+                            /* text: 'Redirecting...', */
+                            icon: 'error',
+                            timer: 3000,
+                            buttons: true,
+                            type: 'error'
+                        })
+                    }
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            }
+        )
+    }
+
+    function apply(id){
+        var name = "#idRe" +id;
+        var nameModal = "#exampleModal" +id;
+        var nameFile = "#fileUpload"+id;
+        var nameText = "#text" +id;
+        var idRe = $(name).val();
+        var textvalue = $(nameText).val();
+        var fileUpload = $(nameFile).get(0);
+        var files = fileUpload.files;
+        var formData = new FormData();
+        formData.append('file', files[0]);
+        formData.append('idRe', idRe);
+        formData.append('text', textvalue);
+        if(files[0] == null){
+            swal({
+                title: 'Bạn cần phải chọn cv!',
+                /* text: 'Redirecting...', */
+                icon: 'error',
+                timer: 3000,
+                buttons: true,
+                type: 'error'
+            })
+        } else {
+            $.ajax(
+                {
+                    type: 'POST',
+                    url: '/user/apply-job/',
+                    contentType: false,
+                    processData: false,
+                    data: formData,
+                    success: function (data) {
+                        if(data == "false"){
+                            swal({
+                                title: 'Bạn cần phải đăng nhập!',
+                                /* text: 'Redirecting...', */
+                                icon: 'error',
+                                timer: 3000,
+                                buttons: true,
+                                type: 'error'
+                            })
+                        }else if(data == "true"){
+                            swal({
+                                title: 'Ứng tuyển thành công!',
+                                /* text: 'Redirecting...', */
+                                icon: 'success',
+                                timer: 3000,
+                                buttons: true,
+                                type: 'success'
+                            })
+                            $(nameModal).modal('hide');
+                            $('#fileUpload').val("");
+                        }else{
+                            swal({
+                                title: 'Bạn đã ứng tuyển công việc này!',
+                                /* text: 'Redirecting...', */
+                                icon: 'error',
+                                timer: 3000,
+                                buttons: true,
+                                type: 'error'
+                            })
+                            $(nameModal).modal('hide');
+                            $('#fileUpload').val("");
+                        }
+                    },
+                    error: function (err) {
+                        alert(err);
+                    }
+                }
+            )
+        }
+
+    }
 </script>
+
+
 
 <footer th:replace="public/fragments :: footer" class="ftco-footer ftco-bg-dark ftco-section">
 
 </footer>
 
+
+<!-- loader -->
+<!--<div th:replace="public/fragments :: loading" id="ftco-loader" class="show fullscreen"></div>-->
+
 </body>
-	<!-- JS -->
-  <script th:src="@{/resources/assets/js/jquery.min.js}"></script>
-  <script th:src="@{/resources/assets/js/jquery-migrate-3.0.1.min.js}"></script>
-  <script th:src="@{/resources/assets/js/popper.min.js}"></script>
-  <script th:src="@{/resources/assets/js/bootstrap.min.js}"></script>
-  <script th:src="@{/resources/assets/js/jquery.easing.1.3.js}"></script>
-  <script th:src="@{/resources/assets/js/jquery.waypoints.min.js}"></script>
-  <script th:src="@{/resources/assets/js/jquery.stellar.min.js}"></script>
-  <script th:src="@{/resources/assets/js/owl.carousel.min.js}"></script>
-  <script th:src="@{/resources/assets/js/jquery.magnific-popup.min.js}"></script>
-  <script th:src="@{/resources/assets/js/aos.js}"></script>
-  <script th:src="@{/resources/assets/js/jquery.animateNumber.min.js}"></script>
-  <script th:src="@{/resources/assets/js/scrollax.min.js}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script th:src="@{/resources/assets/js/google-map.js}"></script>
-  <script th:src="@{/resources/assets/js/main.js}"></script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>

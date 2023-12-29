@@ -27,14 +27,42 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public void  showHome(HttpServletRequest request,HttpServletResponse response) {
-		 try {
+		
+		
+		try {
 			 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			 System.out.println("username: "+auth.getName());
-			 response.sendRedirect("donation/getAll/page/1");
+			 response.sendRedirect("index");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+	
+	@GetMapping("/index")
+	public String showIndex(Model model,Authentication authentication) {
+		if(authentication!=null) {
+			org.springframework.security.core.userdetails.User userDetails = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
+			
+			
+			if (userDetails!=null) {
+				CustomUserDetails userCustomDetails = (CustomUserDetails)userDetails;
+				User userInPage = userCustomDetails.getUser();
+				model.addAttribute("user_inpage",userInPage);
+				//userDonationDTO.setFullName(userInPage.getFullName());
+			}
+		} else {
+			User anonymousUser = userService.getAnonymousUser();
+			model.addAttribute("user_inpage",anonymousUser);
+			//userDonationDTO.setFullName(anonymousUser.getFullName());
+		}
+		model.addAttribute("msg_register_success","1");
+		model.addAttribute("numberCandidate",1011);
+		model.addAttribute("numberCompany",101);
+		model.addAttribute("numberRecruitment",99);
+		return "public/home";
+		//return "debugger";
 	}
 	
 	@GetMapping("/login")
