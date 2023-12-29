@@ -1,0 +1,24 @@
+.alert.alert-danger {
+	color: red;
+	font-weight: bold;
+	/*text-shadow:2px 2px 2px yellow;*/
+}
+
+h3 {
+	color: blue;
+}
+
+
+.homepage_link a{
+	text-decoration: none;
+}
+
+
+.content {
+	text-align: center;
+}
+
+div#loginbox {
+    display: inline-block;
+    float: unset;
+}

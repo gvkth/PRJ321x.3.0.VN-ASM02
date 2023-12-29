@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Entity List</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<h2>Entity List</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entity : ${users}">
+        <td th:text="${entity.id}"></td>
+        <td th:text="${entity.email}"></td>
+        <td>
+            <!-- Button to trigger the modal -->
+            <button type="button" class="btn btn-primary" th:attr="data-target='#editModal'+${entity.id}" data-toggle="modal">
+                Edit
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" th:id="'editModal'+${entity.id}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <!-- Edit form content rendered by Thymeleaf -->
+                        <form th:action="@{'/admin/account/savetest/' + ${entity.id}}" method="post" th:object="${entity}">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Entity</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <label>ID:</label><!-- th:field="*{id}"-->
+                                <input type="text" name="id"  readonly="readonly" class="form-control" th:value="${entity.id}"/>
+                                <br/>
+                                <label>Name:</label>
+                                <input type="text" name="email" class="form-control" th:value="${entity.email}" /> <!-- th:field="*{email}" -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Add Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
