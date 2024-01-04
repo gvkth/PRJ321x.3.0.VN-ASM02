@@ -11,7 +11,7 @@ public interface UserDAO {
 	public List<User> getAllUsersNotDump();
 	public User getAnonymousUser();
 	public User getUser(int theId);
-	public User findByUserName(String username);
+	public User findByEmail(String email);
 	public long countAll();
 	public int create(User theNewUser) throws Exception;
 	public void save(User theUser) throws Exception;

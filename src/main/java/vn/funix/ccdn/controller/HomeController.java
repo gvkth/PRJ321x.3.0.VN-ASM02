@@ -65,7 +65,32 @@ public class HomeController {
 		//return "debugger";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("/indexdebug")
+	public String showIndex2(Model model,Authentication authentication) {
+		if(authentication!=null) {
+			org.springframework.security.core.userdetails.User userDetails = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
+			
+			
+			if (userDetails!=null) {
+				CustomUserDetails userCustomDetails = (CustomUserDetails)userDetails;
+				User userInPage = userCustomDetails.getUser();
+				model.addAttribute("user_inpage",userInPage);
+				//userDonationDTO.setFullName(userInPage.getFullName());
+			}
+		} else {
+			User anonymousUser = userService.getAnonymousUser();
+			model.addAttribute("user_inpage",anonymousUser);
+			//userDonationDTO.setFullName(anonymousUser.getFullName());
+		}
+		model.addAttribute("msg_register_success","1");
+		model.addAttribute("numberCandidate",1011);
+		model.addAttribute("numberCompany",101);
+		model.addAttribute("numberRecruitment",99);
+		//return "public/home";
+		return "debugger";
+	}
+	
+	@GetMapping("/auth/login")
 	public String login() {
 		return "/public/login.html";
 		//return "/debugger.html";

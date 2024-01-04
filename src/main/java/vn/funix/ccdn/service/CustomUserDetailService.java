@@ -18,11 +18,11 @@ public class CustomUserDetailService implements UserDetailsService {
 	
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		
-		final vn.funix.ccdn.entity.User user = userRepository.findByUserName(username);
+		final vn.funix.ccdn.entity.User user = userRepository.findByEmail(email);
 		if (user == null) {
-            throw new UsernameNotFoundException(username);
+            throw new UsernameNotFoundException(email);
         }
 		/*
 		UserDetails user1 = org.springframework.security.core.userdetails.User.withUsername(

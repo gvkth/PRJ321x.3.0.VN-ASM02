@@ -92,12 +92,12 @@ public class UserDAOImpl implements UserDAO {
 
 	
 	@Override
-	public User findByUserName(String username) {
+	public User findByEmail(String email) {
 		//get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		Query<User> theQuery = currentSession.createQuery("from User where userName=:userName", User.class);
-		theQuery.setParameter("userName", username);
+		Query<User> theQuery = currentSession.createQuery("from User where email=:email", User.class);
+		theQuery.setParameter("email", email);
 		List<User> users = theQuery.getResultList();
 		if (users.size()>0) {
 			return users.get(0);

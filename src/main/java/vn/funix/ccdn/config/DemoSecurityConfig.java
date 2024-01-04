@@ -77,13 +77,16 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
 		        .and()
 			.formLogin()
-				.loginPage("/login") //show our custom form at the request mapping
+				.loginPage("/auth/login") //show our custom form at the request mapping
+				.usernameParameter("email") //use email in replace of username
 				.loginProcessingUrl("/authenticateTheUser") //Login form should POST data to this URL for processing - no need to implement this endpoint, Spring supply it freely
+			     .defaultSuccessUrl("/", true)
 				.permitAll()//allow everyone to see login page
 				.and()
 			.logout()
 	            .logoutUrl("/logout")  // Đường dẫn để thực hiện logout
-	            .logoutSuccessUrl("/login?logout") // Đường dẫn sau khi logout thành công
+	            .deleteCookies("JSESSIONID") //delete cookies by name
+	            .logoutSuccessUrl("/?logout") // Đường dẫn sau khi logout thành công
 	            .permitAll()
 	            .and()
             .exceptionHandling().accessDeniedPage("/access-denied");

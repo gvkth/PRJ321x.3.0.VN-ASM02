@@ -27,5 +27,33 @@
         <td th:text="${#vars.getVariable('application')}"></td>
     </tr>
 </table>
+
+<hr>
+<h1>param properties</h1>
+<div>
+  <div th:each="var : ${param.keySet()}">
+    <b th:text="${var}"></b>
+    <p th:text="${param.get(var)}"></p>
+  </div>
+</div>
+
+
+<hr>
+<h1>session properties</h1>
+<div>
+  <div th:each="var : ${session.keySet()}">
+    <b th:text="${var}"></b>
+    <p th:text="${session.get(var)}"></p>
+  </div>
+</div>
+<hr>
+<h1>application properties</h1>
+<div>
+  <div th:each="var : ${application.keySet()}">
+    <b th:text="${var}"></b>
+    <p th:text="${application.get(var)}"></p>
+  </div>
+</div>
+
 </body>
 </html>
