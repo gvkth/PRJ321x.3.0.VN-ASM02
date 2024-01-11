@@ -67,8 +67,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()//we're going to restrict access based on the HttpServletRequest coming in
 				.antMatchers("/resources/**").permitAll() //enable static resources loaded without authentication
-				.antMatchers("/donation/**").permitAll()//enable public view homepage
-				.antMatchers("/user_donation/make").permitAll()
+				.antMatchers("/auth/**").permitAll()
 				.antMatchers("/index").permitAll()
 				.antMatchers("/").permitAll()//enable root path to redirect to public view homepage
 				.anyRequest().authenticated() //any request to the app must be authenticated (ie logged in)

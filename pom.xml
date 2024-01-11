@@ -38,7 +38,11 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		
+		<dependency>
+    		<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.2.5.Final</version>
+		</dependency>
 
 		<!-- Add Jackson for JSON converters -->
 		<dependency>

@@ -16,8 +16,10 @@ import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import vn.funix.ccdn.dto.UserDTO;
+import vn.funix.ccdn.dto.UserRegisterDTO;
 import vn.funix.ccdn.utilities.Utility;
 
 @Entity
@@ -280,7 +282,26 @@ public class User{
 	}
 
 	
-	
+	public User(UserRegisterDTO theNewUserRegister) {
+		
+		super();
+		
+		System.out.println("create by UserRegister");
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		
+		this.address = "address";
+		this.email = theNewUserRegister.getEmail();
+		this.fullName = theNewUserRegister.getFullName();
+		this.note = "note";
+		this.password = "{bcrypt}"+bCryptPasswordEncoder.encode(theNewUserRegister.getPassword());
+		
+		this.phoneNumber = "";
+		this.status = 1 ;
+		this.userName = theNewUserRegister.getEmail();
+		this.createdAt = Utility.getCurrentTimeString();
+		this.role = new Role(theNewUserRegister.getRoleId());
+		this.deleted = 0;
+	}
 
 
 
@@ -295,7 +316,7 @@ public class User{
 		this.userName = "Tên đăng nhập";
 		this.password = "test123";
 		this.createdAt = Utility.getCurrentTimeString();
-		this.role = new Role(Role.ROLE_USER);
+		this.role = new Role(Role.ROLE_RECRUITER);
 		this.deleted = 0;
 				
 		

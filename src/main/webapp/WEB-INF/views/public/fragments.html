@@ -20,7 +20,7 @@
 		  <script th:src="@{/resources/assets/js/aos.js}"></script>
 		  <script th:src="@{/resources/assets/js/jquery.animateNumber.min.js}"></script>
 		  <script th:src="@{/resources/assets/js/scrollax.min.js}"></script>
-		  <!--
+		  <!-- Error=>disable
 		  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 		  <script th:src="@{/resources/assets/js/google-map.js}"></script>
 		  -->
@@ -52,12 +52,12 @@
 		              <ul class="dropdown">
 		                <li><a href="/">Hồ Sơ</a></li>
 		    <!--            <li><a href="service-single.html">Đổi mật khẩu</a></li>-->
-		                <li ><a href="/save-job/get-list" >Công việc đã lưu</a></li>
-		                <li ><a href="/user/list-post" >Danh sách bài đăng</a></li>
-		                <li ><a href="/user/get-list-apply" >Công việc đã ứng tuyển</a></li>
-		                <li ><a href="/user/get-list-company" >Công ty đã theo dõi</a></li>
+		                <li ><a th:href="@{/save-job/get-list}" >Công việc đã lưu</a></li>
+		                <li ><a th:href="@{/user/list-post}" >Danh sách bài đăng</a></li>
+		                <li ><a th:href="@{/user/get-list-apply}" >Công việc đã ứng tuyển</a></li>
+		                <li ><a th:href="@{/user/get-list-company}" >Công ty đã theo dõi</a></li>
 		    <!--            <li th:if="${session.user.role.id == 2}"><a href="/auth/logout" >Ứng cử viên tiềm năng</a></li>-->
-		                <li><a href="/auth/logout" >Đăng xuất</a></li>
+		                <li><a th:href="@{/auth/logout}" >Đăng xuất</a></li>
 		    
 		              </ul>
 		            </li>
@@ -76,8 +76,17 @@
 		          </ul>
 		        </div>
 		        <div sec:authorize="isAuthenticated()" style="margin-left: 1em;">
-      				<span sec:authentication="name"></span></div>
+      				<!--
+				  	1st way <span sec:authentication="name"></span>
+      				2nd way <span th:text="${session.SPRING_SECURITY_CONTEXT.Authentication.Principal.Username}"></span>
+      				-->
+      				<span th:text="${user_inpage.fullName}" class="username"></span>
+  				</div>
+
+</div>
+				  </div>
 		      </div>
+		      
 		</nav>
 	
 </body>

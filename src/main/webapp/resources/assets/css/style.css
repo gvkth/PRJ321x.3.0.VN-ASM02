@@ -10031,3 +10031,10 @@ textarea.form-control {
   margin-top: 0px;
   visibility: visible;
   opacity: 1; }
+  
+span.username {
+    color: white;
+    background: #0000008c;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}

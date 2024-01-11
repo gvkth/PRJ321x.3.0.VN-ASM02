@@ -92,38 +92,16 @@ public class HomeController {
 	
 	@GetMapping("/auth/login")
 	public String login() {
-		return "/public/login.html";
+		return "/public/login";
 		//return "/debugger.html";
 	}
+	
+	
 	
 	@GetMapping("/access-denied")
 	public String showAccessDeniedPage() {
 		return "/public/access-denied";
 	}
 	
-	@GetMapping("/user/info/{userId}")
-	public String showUserInfo(@PathVariable Integer userId,Model model,Authentication authentication) {
-		if(authentication!=null) {
-			org.springframework.security.core.userdetails.User userDetails = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
-			
-			
-			if (userDetails!=null) {
-				CustomUserDetails userCustomDetails = (CustomUserDetails)userDetails;
-				User userInPage = userCustomDetails.getUser();
-				model.addAttribute("user_inpage",userInPage);
-				//userDonationDTO.setFullName(userInPage.getFullName());
-			}
-		} else {
-			User anonymousUser = userService.getAnonymousUser();
-			model.addAttribute("user_inpage",anonymousUser);
-			//userDonationDTO.setFullName(anonymousUser.getFullName());
-		}
-		
-		User user = userService.get(userId);
-		if(user!=null) {
-			UserDTO userDTO = user.getDTO();
-			model.addAttribute("userDTO",userDTO);
-		}
-		return "/public/user-info";
-	}
+	
 }

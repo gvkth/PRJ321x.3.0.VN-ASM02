@@ -142,7 +142,7 @@ public class AdminUserController {
 				currentUser.setPhoneNumber(theUser.getPhoneNumber());
 				currentUser.setAddress(ensureUTF8(theUser.getAddress()));
 				
-				if((roleId==Role.ROLE_ADMIN) || (roleId==Role.ROLE_USER)
+				if((roleId==Role.ROLE_CANDIDATE) || (roleId==Role.ROLE_RECRUITER)
 						&& (currentUser.getRoleId()!=null && (new Integer(roleId))!=currentUser.getRoleId()))
 				currentUser.setRoleByRoleID(roleId);
 				System.out.println("currentUser-updated");

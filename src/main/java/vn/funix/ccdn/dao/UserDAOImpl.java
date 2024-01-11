@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import vn.funix.ccdn.dto.UserRegisterDTO;
 import vn.funix.ccdn.entity.Donation;
 import vn.funix.ccdn.entity.User;
 
@@ -120,6 +121,23 @@ public class UserDAOImpl implements UserDAO {
 		return ret;
 	}
 	
+	@Override
+	public int create(UserRegisterDTO theNewUserRegisterDTO) throws Exception {
+		int ret = 0;
+		Session currentSession = sessionFactory.getCurrentSession();
+		User theNewUser = new User(theNewUserRegisterDTO);
+		System.out.println("create by UserRegisterDTO");
+		try {
+			ret =(int) currentSession.save(theNewUser);
+			System.out.println("Here: "+String.valueOf(ret));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return ret;
+	}
+	
 	
 	@Override
 	public void save(User theUser) throws Exception {
@@ -157,5 +175,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		return user;
 	}
+
+	
 	
 }

@@ -11,8 +11,8 @@ import javax.persistence.Table;
 @Table(name="role")
 public class Role {
 	
-	public static final int ROLE_ADMIN=1;
-	public static final int ROLE_USER = 2;
+	public static final int ROLE_CANDIDATE=1;
+	public static final int ROLE_RECRUITER = 2;
 	
 	
 	@Id
@@ -29,10 +29,10 @@ public class Role {
 
 	public void setId(int id) {
 		this.id = id;
-		if(id==ROLE_ADMIN)
-			this.roleName = "ADMIN";
-		else if (id==ROLE_USER)
-			this.roleName = "USER";
+		if(id==ROLE_CANDIDATE)
+			this.roleName = "CANDIDATE";
+		else if (id==ROLE_RECRUITER)
+			this.roleName = "RECRUITER";
 		else
 			this.roleName = "UNKNOWN";
 	}
@@ -51,7 +51,7 @@ public class Role {
 	}
 
 	public Role() {
-		setId(1);
+		setId(ROLE_CANDIDATE);
 	}
 	
 	

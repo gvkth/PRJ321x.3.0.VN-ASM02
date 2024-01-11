@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import vn.funix.ccdn.dao.UserDAO;
+import vn.funix.ccdn.dto.UserRegisterDTO;
 import vn.funix.ccdn.entity.User;
 
 @Service
@@ -56,6 +57,13 @@ public class UserServiceImpl implements UserService
 	public int create(User theUser) throws Exception {
 		return userDAO.create(theUser);
 	}
+	
+	@Override
+	@Transactional
+	public int create(UserRegisterDTO theUserRegisterDTO) throws Exception {
+		return userDAO.create(theUserRegisterDTO);
+		
+	}
 
 	@Override
 	@Transactional
@@ -80,6 +88,8 @@ public class UserServiceImpl implements UserService
 	public User getAnonymousUser() {
 		return userDAO.getAnonymousUser();
 	}
+
+	
 
 	
 }

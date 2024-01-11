@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head>
-    <title>Đăng nhập</title>
+    <title>Đăng ký</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -38,25 +38,23 @@
   <div class="container">
     <div class="row no-gutters slider-text align-items-end justify-content-start">
       <div class="col-md-12 text-center mb-5">
-        <p class="breadcrumbs mb-0"><span class="mr-3"><a th:href="@{/}">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span> đăng nhập<span></span></p>
-        <h1 class="mb-3 bread">Đăng nhập</h1>
+        <p class="breadcrumbs mb-0"><span class="mr-3"><a th:href="@{/}">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span> đăng ký<span></span></p>
+        <h1 class="mb-3 bread">Đăng ký</h1>
       </div>
     </div>
   </div>
 </div>
 
 
-  
-
 <!-- HOME -->
 <section class="section-hero overlay inner-page bg-image" th:style="'background-image: url(\''+@{/resources/assets/images/hero_1.jpg}+'\');'" id="home-section">
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1 class="text-white font-weight-bold">Đăng nhập</h1>
+        <h1 class="text-white font-weight-bold">Đăng ký</h1>
         <div class="custom-breadcrumbs">
           <a th:href="@{/}">Trang chủ</a> <span class="mx-2 slash">/</span>
-          <span class="text-white"><strong>Đăng nhập</strong></span>
+          <span class="text-white"><strong>Đăng ký</strong></span>
         </div>
       </div>
     </div>
@@ -65,65 +63,87 @@
 <section class="site-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-6">
-        <h2 class="mb-4">Đăng nhập</h2>
-        <form th:action="@{/authenticateTheUser}" method="post" class="p-4 border rounded">
-			<div class="row form-group">
-	            <div>
-					<div th:if="${param.error != null}" class="alert alert-danger col-xs-offset-1 col-xs-10">
-						Tên hoặc mật khẩu không đúng.
-					</div>
-							            
-					<div th:if="${param.logout}" class="alert alert-success col-xs-offset-1 col-xs-10">
-						Bạn đã thoát khỏi chương trình.
-					</div>
-				    
-	
-	            </div>
-	        </div>
+      <div class="col-lg-3 mb-5"></div>
+      <div class="col-lg-6 mb-5">
+        <h2 class="mb-4">Đăng ký</h2>
+        <form th:action="@{/auth/register_process}" method="post" class="p-4 border rounded" th:object="${user_register_dto}">
+
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="text-black" for="fname">Email</label>
-              <input type="email" id="fname" name="email" class="form-control" placeholder="Email" required>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Họ và tên</label>
+              <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Họ và tên" required>
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Mật khẩu</label>
+              <input type="password" id="password"  name="password" class="form-control" placeholder="Mật khẩu" required>
             </div>
           </div>
           <div class="row form-group mb-4">
             <div class="col-md-12 mb-3 mb-md-0">
-              <label class="text-black" for="fname">Mật khẩu</label>
-              <input type="password" id="fname" name="password" class="form-control" placeholder="Mật khẩu" required>
+              <label class="text-black" for="fname">Nhập lại mật khẩu</label>
+              <input type="password" id="passwordRe" name="passwordRe" class="form-control" placeholder="Nhập lại mật khẩu" required>
             </div>
           </div>
-
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Vai trò</label>
+              <select class="form-control" name="roleId" aria-label="Default select example" required>
+                <option selected>Chọn vai trò</option>
+                <option value="1">Ứng cử viên</option>
+                <option value="2">Công ty</option>
+              </select>
+            </div>
+          </div>
           <div class="row form-group text-center">
             <div class="col-md-12 text-center">
-              <input type="submit" value="Đăng nhập" class="btn px-4 btn-primary text-white">
+              <input type="submit" value="Đăng kí" class="btn px-4 btn-primary text-white">
             </div>
             <div class="col-md-12 text-center">
-				Chưa có tài khoản? <a th:href="@{/auth/register}">Đăng ký</a>
-				</div>
+				Đã có tài khoản? <a th:href="@{/auth/login}">Đăng nhập</a>
+            </div>
           </div>
-
         </form>
       </div>
-      <div class="col-lg-3"></div>
+      <div class="col-lg-3 mb-5"></div>
     </div>
   </div>
 </section>
 <footer th:replace="public/fragments :: footer" class="ftco-footer ftco-bg-dark ftco-section">
 </footer>
-<div th:if="${param.error != null}" class="toast" data-delay="2500" style="position:fixed; top: 100PX; right: 10PX;z-index: 2000;width: 300px">
+<div th:if="${msg_register_success}" class="toast" data-delay="2500" style="position:fixed; top: 100PX; right: 10PX;z-index: 2000;width: 300px">
     <script>
       swal({
-        title: 'Tên đăng nhập hoặc mật khẩu không đúng!',
+        title: 'Đăng ký thành công!',
         /* text: 'Redirecting...', */
-        icon: 'danger',
+        icon: 'success',
         timer: 3000,
         buttons: true,
-        type: 'danger'
+        type: 'success'
       })
     </script>
   </div>
   
+  <div th:if="${msg_register_error}" class="toast" data-delay="2500" style="position:fixed; top: 100PX; right: 10PX;z-index: 2000;width: 300px">
+  <script>
+    swal({
+      title: 'Đăng ký thất bại!',
+      text: '[[${msg_register_error}]]', 
+      icon: 'error',
+      timer: 13000,
+      buttons: true,
+      type: 'error'
+    })
+  </script>
+</div>
 </body>
 </html>
