@@ -66,12 +66,12 @@
       <div class="col-lg-3 mb-5"></div>
       <div class="col-lg-6 mb-5">
         <h2 class="mb-4">Đăng ký</h2>
-        <form th:action="@{/auth/register_process}" method="post" class="p-4 border rounded" th:object="${user_register_dto}">
+        <form th:action="@{/auth/register}" method="post" class="p-4 border rounded" th:object="${user_register_dto}">
 
           <div class="row form-group">
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="text-black" for="fname">Email</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Email" required >
             </div>
           </div>
 
@@ -98,7 +98,7 @@
             <div class="col-md-12 mb-3 mb-md-0">
               <label class="text-black" for="fname">Vai trò</label>
               <select class="form-control" name="roleId" aria-label="Default select example" required>
-                <option selected>Chọn vai trò</option>
+                <option selected value="0">Chọn vai trò</option>
                 <option value="1">Ứng cử viên</option>
                 <option value="2">Công ty</option>
               </select>
@@ -112,6 +112,16 @@
 				Đã có tài khoản? <a th:href="@{/auth/login}">Đăng nhập</a>
             </div>
           </div>
+          <div class="row form-group">
+			  <span th:if="${#fields.hasErrors('passwordRe')}" th:errors="*{passwordRe}"></span>
+			  <div th:if="${#fields.hasAnyErrors()}">
+				  <h3>Có lỗi</h3>
+				    <ul>
+				        <li th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+				    </ul>
+				</div>
+
+		  </div>
         </form>
       </div>
       <div class="col-lg-3 mb-5"></div>
@@ -121,15 +131,19 @@
 <footer th:replace="public/fragments :: footer" class="ftco-footer ftco-bg-dark ftco-section">
 </footer>
 <div th:if="${msg_register_success}" class="toast" data-delay="2500" style="position:fixed; top: 100PX; right: 10PX;z-index: 2000;width: 300px">
+
     <script>
       swal({
         title: 'Đăng ký thành công!',
-        /* text: 'Redirecting...', */
+        /* text: 'Redirecting...'
+        text:'Đi đến <span>trang đăng nhập</span>',*/
+        html:true,
         icon: 'success',
-        timer: 3000,
+        timer: 5000,
         buttons: true,
         type: 'success'
       })
+      
     </script>
   </div>
   

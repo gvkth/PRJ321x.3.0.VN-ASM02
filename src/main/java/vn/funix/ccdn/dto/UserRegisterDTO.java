@@ -1,27 +1,54 @@
 package vn.funix.ccdn.dto;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
+import vn.funix.ccdn.validator.FieldsValueMatch;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@FieldsValueMatch.List({ 
+    @FieldsValueMatch(
+      field = "password", 
+      fieldMatch = "passwordRe", 
+      message = "Mật khẩu nhập lại không khớp."
+    ), 
+    
+})
+
 public class UserRegisterDTO {
-	@Email
-	@NotNull(message="email không được để trống")
+	@Email(message="Định dạng email không hợp lệ.")
+	@NotEmpty(message="email không được để trống.")
+	@NotNull(message="email không được để trống.")
 	private String email;
 	
-	@NotNull(message="Tên người dùng không để trống")
-	@Size(min=3, message="Tên người dùng ít nhất 3 ký tự")
+	@NotNull(message="Tên người dùng không để trống.")
+	@NotBlank(message="Tên người dùng không để trống.")
+	@NotEmpty(message="Tên người dùng không để trống.")
+	@Size(min=3, message="Tên người dùng ít nhất 3 ký tự.")
 	private String fullName;
 	
 	@NotNull
-	@Size(min=2,message="Mật khẩu phải nhiều hơn 1 ký tự")
+	@Size(min=2,message="Mật khẩu phải nhiều hơn 1 ký tự.")
 	private String password;
 	
 	@NotNull
-	@Size(min=2,message="Mật khẩu phải nhiều hơn 1 ký tự")
+	@Size(min=2,message="Mật khẩu (lặp lại) phải nhiều hơn 1 ký tự.")
 	private String passwordRe;
 	
+	@NotNull(message="Chưa chọn role.")
+	@Digits(integer = 1, fraction = 0,message="Chọn role chưa đúng.")
+	@Min(value=1,message="Chọn role chưa đúng.")
+	@Max(value=2,message="Chọn role chưa đúng.")
 	private int roleId;
+	
+	
+	
 	public String getEmail() {
 		return email;
 	}
