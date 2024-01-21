@@ -4,6 +4,12 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+	
+	table td{
+		border:1px solid black;
+	}
+</style>
 <body>
 <table>
     <tr th:each="var : ${#vars.getVariableNames()}">
@@ -54,6 +60,12 @@
     <p th:text="${application.get(var)}"></p>
   </div>
 </div>
-
+<h1>Errors?</h1>
+<div th:if="${#fields.hasAnyErrors()}">
+  <h3>Có lỗi</h3>
+    <ul>
+        <li th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+    </ul>
+</div>
 </body>
 </html>

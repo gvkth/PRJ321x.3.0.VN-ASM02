@@ -89,6 +89,12 @@ public class UserServiceImpl implements UserService
 		return userDAO.getAnonymousUser();
 	}
 
+	@Override
+	@Transactional
+	public boolean isEmailAlreadyInUse(String email) {
+		return userDAO.isEmailAlreadyInUse(email);
+	}
+
 	
 
 	

@@ -176,6 +176,13 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
+	@Override
+	public boolean isEmailAlreadyInUse(String email) {
+		//get the current hibernate session
+		User userWithEmail = this.findByEmail(email);
+		return (userWithEmail!=null);
+	}
+
 	
 	
 }

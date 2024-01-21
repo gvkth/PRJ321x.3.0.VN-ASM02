@@ -28,7 +28,7 @@ public class AuthenticateController {
 	UserService userService;
 	
 	@PostMapping(value="/register", produces="application/x-www-form-urlencoded;charset=utf-8")
-	public ModelAndView registerProcess(@Valid @ModelAttribute("user_register") UserRegisterDTO userRegisterDTO,BindingResult theBindingResult,HttpSession session)
+	public ModelAndView registerProcess(@Valid @ModelAttribute("user_register_dto") UserRegisterDTO userRegisterDTO,BindingResult theBindingResult,HttpSession session)
 	{
 		System.out.println("create a new user");
 		System.out.println(userRegisterDTO.toString());
@@ -51,9 +51,9 @@ public class AuthenticateController {
 			String sErrors = genErrorString(theBindingResult);
 			System.out.println("CCC-Có lỗi");
 			System.out.println(sErrors);
-			flashMemory.setVar("flash_mess", "CCC.Có lỗi khi tạo mới tài khoản: "+sErrors);
+			//flashMemory.setVar("flash_mess", "CCC.Có lỗi khi tạo mới tài khoản: "+sErrors);
 			//modelAndView.setViewName("redirect:/auth/register/");
-			modelAndView.addObject("user_register_dto",userRegisterDTO);
+			//modelAndView.addObject("user_register_dto",userRegisterDTO);
 			
 			modelAndView.setViewName("/public/register");
 			//modelAndView.setViewName("/debugger");
@@ -71,7 +71,9 @@ public class AuthenticateController {
 				flashMemory.setVar("flash_mess", "AAA.Có lỗi khi tạo mới tài khoản."+String.valueOf(createRet));
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			// NOTE: doan catch nay khong con tac dung kiem tra email, username
+			// chua co trong DB sau khi cai dat custom
+			// validator UniqueEmail
 			Throwable causeOne = e.getCause();
 			String message = "Có lỗi khi thực hiện ("+e.getLocalizedMessage()+")";
 			if(causeOne instanceof MySQLIntegrityConstraintViolationException) {
@@ -91,7 +93,7 @@ public class AuthenticateController {
 			flashMemory.setVar("flash_code", "0");
 			flashMemory.setVar("flash_mess", "BBB.Có lỗi khi tạo mới tài khoản. "+message);
 		}
-		
+		//modelAndView.setViewName("/public/register");
 		modelAndView.setViewName("redirect:/auth/register/");
 		return  modelAndView;
 	}

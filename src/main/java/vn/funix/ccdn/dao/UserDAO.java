@@ -18,4 +18,5 @@ public interface UserDAO {
 	public int create(UserRegisterDTO theNewUserRegisterDTO) throws Exception;
 	public void save(User theUser) throws Exception;
 	public void delete(int theId) throws Exception;
+	public boolean isEmailAlreadyInUse(String email);
 }

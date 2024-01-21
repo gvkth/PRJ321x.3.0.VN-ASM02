@@ -18,4 +18,5 @@ public interface UserService {
 	public int create(UserRegisterDTO theUserRegisterDTO) throws Exception;
 	public void save(User theDonation) throws Exception;
 	public void delete(int theId) throws Exception;
+	public boolean isEmailAlreadyInUse(String email);
 }

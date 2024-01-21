@@ -13,7 +13,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FieldsValueMatch {
 
-    String message() default "Fields values don't match!";
+    String message() default "Chuỗi lặp lại không khớp!";
 
     String field();
 

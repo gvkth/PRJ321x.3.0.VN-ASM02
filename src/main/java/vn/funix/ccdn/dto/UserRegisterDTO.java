@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import vn.funix.ccdn.validator.FieldsValueMatch;
+import vn.funix.ccdn.validator.UniqueEmail;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -25,6 +26,7 @@ public class UserRegisterDTO {
 	@Email(message="Định dạng email không hợp lệ.")
 	@NotEmpty(message="email không được để trống.")
 	@NotNull(message="email không được để trống.")
+	@UniqueEmail(message="email đã được sử dụng")
 	private String email;
 	
 	@NotNull(message="Tên người dùng không để trống.")
@@ -45,7 +47,11 @@ public class UserRegisterDTO {
 	@Digits(integer = 1, fraction = 0,message="Chọn role chưa đúng.")
 	@Min(value=1,message="Chọn role chưa đúng.")
 	@Max(value=2,message="Chọn role chưa đúng.")
-	private int roleId;
+	private Integer roleId;
+	/*
+	 * Sử dụng Integer cho roleId thay cho int để tránh lỗi client truyền về giá trị là chuỗi, khoảng trắng, v.v...
+	 * không phải là số. Nếu int sẽ throw exception chứ không thực hiện validate
+	 * */
 	
 	
 	
@@ -73,10 +79,10 @@ public class UserRegisterDTO {
 	public void setPasswordRe(String passwordRe) {
 		this.passwordRe = passwordRe;
 	}
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 	@Override
