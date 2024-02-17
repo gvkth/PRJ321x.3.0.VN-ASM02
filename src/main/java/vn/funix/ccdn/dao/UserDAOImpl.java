@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import vn.funix.ccdn.dto.UserRegisterDTO;
-import vn.funix.ccdn.entity.Donation;
 import vn.funix.ccdn.entity.User;
 
 @Repository
@@ -58,6 +57,13 @@ public class UserDAOImpl implements UserDAO {
 		//now retrieve/read from DB using the primary key
 		long count = (Long) currentSession.createQuery("SELECT COUNT(*) FROM User").uniqueResult();
 
+		return count;
+	}
+	
+	@Override
+	public long countCandidates() {
+		Session currentSession = sessionFactory.getCurrentSession();
+		long count = (Long)currentSession.createQuery("select count(1) from User where role=1").uniqueResult();
 		return count;
 	}
 
@@ -182,6 +188,8 @@ public class UserDAOImpl implements UserDAO {
 		User userWithEmail = this.findByEmail(email);
 		return (userWithEmail!=null);
 	}
+
+	
 
 	
 	

@@ -14,6 +14,7 @@ public interface UserService {
 	public User getAnonymousUser();
 	public User getByUsername(String userName);
 	public long count();
+	public long countCandidates();
 	public int create(User theDonation) throws Exception;
 	public int create(UserRegisterDTO theUserRegisterDTO) throws Exception;
 	public void save(User theDonation) throws Exception;

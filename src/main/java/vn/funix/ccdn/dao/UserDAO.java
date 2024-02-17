@@ -14,6 +14,7 @@ public interface UserDAO {
 	public User getUser(int theId);
 	public User findByEmail(String email);
 	public long countAll();
+	public long countCandidates();
 	public int create(User theNewUser) throws Exception;
 	public int create(UserRegisterDTO theNewUserRegisterDTO) throws Exception;
 	public void save(User theUser) throws Exception;

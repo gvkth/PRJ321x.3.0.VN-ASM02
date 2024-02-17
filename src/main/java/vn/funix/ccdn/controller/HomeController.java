@@ -1,6 +1,8 @@
 package vn.funix.ccdn.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
@@ -14,8 +16,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import vn.funix.ccdn.dto.UserDTO;
+import vn.funix.ccdn.entity.Company;
 import vn.funix.ccdn.entity.CustomUserDetails;
+import vn.funix.ccdn.entity.Recruitment;
 import vn.funix.ccdn.entity.User;
+import vn.funix.ccdn.service.CompanyService;
+import vn.funix.ccdn.service.RecruitmentService;
 import vn.funix.ccdn.service.UserService;
 
 
@@ -24,6 +30,13 @@ public class HomeController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	CompanyService companyService;
+	
+	@Autowired
+	RecruitmentService recruitmentService;
+	
 	
 	@GetMapping("/")
 	public void  showHome(HttpServletRequest request,HttpServletResponse response) {
@@ -58,9 +71,18 @@ public class HomeController {
 			//userDonationDTO.setFullName(anonymousUser.getFullName());
 		}
 		model.addAttribute("msg_register_success","1");
-		model.addAttribute("numberCandidate",1011);
-		model.addAttribute("numberCompany",101);
-		model.addAttribute("numberRecruitment",99);
+		long c = userService.countCandidates();
+		model.addAttribute("numberCandidate",c);
+		model.addAttribute("numberCompany",companyService.count());
+		model.addAttribute("numberRecruitment",recruitmentService.count());
+		
+		List<Company> featuredCompanies = companyService.getFeatured();
+		model.addAttribute("featuredCompanies",featuredCompanies);
+		
+		//test Recruitment
+		List<Recruitment> recruitments = recruitmentService.getAll();
+		model.addAttribute("recruitments",recruitments);
+		
 		return "public/home";
 		//return "debugger";
 	}
@@ -84,9 +106,16 @@ public class HomeController {
 		}
 		model.addAttribute("msg_register_success","1");
 		model.addAttribute("numberCandidate",1011);
-		model.addAttribute("numberCompany",101);
+		model.addAttribute("numberCompany",companyService.count());
 		model.addAttribute("numberRecruitment",99);
-		//return "public/home";
+		
+		List<Company> featuredCompanies = companyService.getFeatured();
+		model.addAttribute("featuredCompanies",featuredCompanies);
+		
+		//test Recruitment
+		List<Recruitment> recruitments = recruitmentService.getAll();
+		model.addAttribute("recruitments",recruitments);
+		
 		return "debugger";
 	}
 	

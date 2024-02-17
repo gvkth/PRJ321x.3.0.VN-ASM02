@@ -77,8 +77,6 @@ public class User{
 	@JoinColumn(name="role_id")
 	private Role role;
 	
-	@OneToMany(mappedBy = "userMakeADonate")
-	private List<UserDonation> userDonations;
 	
 	
 	

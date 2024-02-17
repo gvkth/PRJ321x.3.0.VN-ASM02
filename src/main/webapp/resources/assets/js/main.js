@@ -314,5 +314,14 @@
   });
 
 
+	$( document ).ready(function() {
+	    $('.logout-link').off('click').on('click',function(){
+			let jForm = $(this).closest('li').next('li');
+			if(jForm.length>0)
+				jForm.find('form').submit();
+		});
+	});
+						
+
 })(jQuery);
 

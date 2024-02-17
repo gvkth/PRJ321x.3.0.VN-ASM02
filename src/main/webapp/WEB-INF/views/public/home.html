@@ -43,7 +43,7 @@
                                             <span class="flaticon-visitor"></span>
                                         </div>
                                         <div class="desc text-left">
-                                            <strong class="number" data-number="416" th:text="${numberCandidate}"></strong>
+                                            <strong class="number" th:data-number="${numberCandidate}" th:text="${numberCandidate}"></strong>
                                             <span>Ứng cử viên</span>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                             <span class="flaticon-visitor"></span>
                                         </div>
                                         <div class="desc text-left">
-                                            <strong class="number" data-number="437" th:text="${numberCompany}"></strong>
+                                            <strong class="number" th:data-number="${numberCompany}" th:text="${numberCompany}"></strong>
                                             <span>Công ty</span>
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                             <span class="flaticon-resume"></span>
                                         </div>
                                         <div class="desc text-left">
-                                            <strong class="number" data-number="80125" th:text="${numberRecruitment}"></strong>
+                                            <strong class="number" th:data-number="${numberRecruitment}" th:text="${numberRecruitment}"></strong>
                                             <span>Tuyển dụng</span>
                                         </div>
                                     </div>
@@ -339,13 +339,13 @@
                         <h2 class="mb-4">Công ty nổi bật</h2>
                     </div>
                 </div>
-                <th:block th:each="companies : ${companies}">
+                <th:block th:each="company : ${featuredCompanies}">
                 <div class="sidebar-box">
                     <div class="">
-                        <a th:href="${'/user/detail-company/'}+${companies[0]}" class="company-wrap"><img th:src="${companies[2]}" class="img-fluid" alt="Colorlib Free Template"></a>
+                        <a th:href="${'/user/detail-company/'}+${company.id}" class="company-wrap"><img th:src="${company.logo}" class="img-fluid" alt="Colorlib Free Template"></a>
                         <div class="text p-3">
-                            <h3><a th:href="${'/user/detail-company/'}+${companies[0]}" th:text="${companies[1]}"></a></h3>
-                            <p><span class="number" style="color: black" th:text="${companies[3]}"></span> <span>Vị trí ứng tuyển</span></p>
+                            <h3><a th:href="${'/user/detail-company/'}+${company.id}" th:text="${company.nameCompany}"></a></h3>
+                            <p><span class="number" style="color: black" th:text="${company.id}"></span> <span>Vị trí ứng tuyển</span></p>
                         </div>
                     </div>
                 </div>
