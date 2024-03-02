@@ -187,7 +187,7 @@ public class Recruitment {
 		return "Recruitment [id=" + id + ", address=" + address + ", createdAt=" + createdAt + ", description="
 				+ description + ", experience=" + experience + ", quantity=" + quantity + ", rank=" + rank + ", salary="
 				+ salary + ", status=" + status + ", title=" + title + ", type=" + type + ", view=" + view
-				+ ", categoryId=" + category.getId() + ", companyId=" + company + ", deadline=" + deadline + "]";
+				+ ", categoryId=" + Integer.toString(category.getId()) + ", companyId=" + company + ", deadline=" + deadline + "]";
 	}
 	
 	

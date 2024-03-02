@@ -46,7 +46,10 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 //			.withUser(users.username("john").password("test123").roles("EMPLOYEE"))
 //			.withUser(users.username("mary").password("test123").roles("MANAGER"))
 //			.withUser(users.username("susan").password("test123").roles("ADMIN"));
-		auth.jdbcAuthentication().dataSource(securityDataSource);
+		auth.jdbcAuthentication().dataSource(securityDataSource)
+		.usersByUsernameQuery("SELECT email, password, status as enabled FROM user WHERE email=?")
+		.authoritiesByUsernameQuery("SELECT email, authority FROM authorities WHERE email=?")
+        ;
 //		auth.userDetailsService(userService);
 		
 		auth.authenticationProvider(authProvider());
@@ -79,6 +82,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/auth/login") //show our custom form at the request mapping
 				.usernameParameter("email") //use email in replace of username
 				.loginProcessingUrl("/authenticateTheUser") //Login form should POST data to this URL for processing - no need to implement this endpoint, Spring supply it freely
+				.failureHandler(new CustomAuthenticationFailureHandler()) // Set the custom failure handler
 			     .defaultSuccessUrl("/", true)
 				.permitAll()//allow everyone to see login page
 				.and()

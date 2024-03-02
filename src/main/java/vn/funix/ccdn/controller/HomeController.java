@@ -71,8 +71,7 @@ public class HomeController {
 			//userDonationDTO.setFullName(anonymousUser.getFullName());
 		}
 		model.addAttribute("msg_register_success","1");
-		long c = userService.countCandidates();
-		model.addAttribute("numberCandidate",c);
+		model.addAttribute("numberCandidate",userService.countCandidates());
 		model.addAttribute("numberCompany",companyService.count());
 		model.addAttribute("numberRecruitment",recruitmentService.count());
 		
@@ -105,9 +104,9 @@ public class HomeController {
 			//userDonationDTO.setFullName(anonymousUser.getFullName());
 		}
 		model.addAttribute("msg_register_success","1");
-		model.addAttribute("numberCandidate",1011);
+		model.addAttribute("numberCandidate",userService.countCandidates());
 		model.addAttribute("numberCompany",companyService.count());
-		model.addAttribute("numberRecruitment",99);
+		model.addAttribute("numberRecruitment",recruitmentService.count());
 		
 		List<Company> featuredCompanies = companyService.getFeatured();
 		model.addAttribute("featuredCompanies",featuredCompanies);
